@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipboard com Botão Flutuante Aprimorado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container-clip {
+            width: 50%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .code-container {
+            position: relative;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .code-block {
+            font-family: 'Courier New', Courier, monospace;
+            color: #d4d4d4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.3s, opacity 0.3s, visibility 0.3s;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .copy-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .copy-btn.fixed {
+            position: fixed;
+        }
+
+        .copy-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .success-message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            display: none;
+            z-index: 1000;
+        }
+
+        @media (max-width: 600px) {
+            .container-clip {
+                width: 95%;
+                padding: 10px;
+            }
+            .copy-btn {
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-clip">
+        <h1>Exemplo de Clipboard com Botão Flutuante</h1>
+        <p>Role a página para ver o botão de cópia acompanhar o texto, código...</p>
+
+        <div class="code-container" id="codeContainer">
+            <pre class="code-block" id="codeBlock">
+                
+                Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra dictum ante pellentesque ut felis sociosqu mi egestas. Imperdiet sed semper ullamcorper phasellus mauris consequat volutpat fusce. Aliquet erat convallis ultrices sociosqu donec eros nisi. Suspendisse phasellus leo porttitor et egestas semper lorem sem curabitur. Enim nisl semper maecenas per pellentesque mattis. Elementum eu conubia sapien non; curabitur dignissim.
+
+Tristique penatibus hendrerit pretium lacus, pulvinar donec consequat. Proin semper habitant tempor sociosqu vehicula placerat accumsan! Adipiscing neque ante elementum dignissim eleifend quam. Scelerisque malesuada ipsum nunc urna in placerat laoreet. Suscipit donec nisl leo dolor scelerisque, ut interdum quisque. Lobortis maximus diam elementum dapibus scelerisque etiam eleifend arcu lorem. Posuere nunc congue ac venenatis sagittis vulputate et quam amet. Tellus fusce nullam class aenean leo ultricies enim.
+
+Condimentum volutpat eros finibus adipiscing morbi nec. Fames dui malesuada aliquet at iaculis. Consequat molestie libero ad magnis fringilla at. Platea eleifend hendrerit pellentesque consectetur convallis turpis ultrices nam. Mauris ante est purus habitant ornare leo blandit phasellus nisl. Odio magnis per fringilla suscipit a massa per. Habitasse augue maecenas vehicula vitae hendrerit fames. Dictum quis posuere posuere dictum mauris dis rutrum senectus. Aliquam vehicula phasellus a dui lacus tellus accumsan nibh.
+
+Sem suscipit elit ridiculus congue, cubilia elit? Vulputate suscipit curabitur elementum aenean turpis ultrices finibus congue. Placerat enim eget vestibulum, suscipit eget vitae. Pretium montes lacus maecenas fusce integer libero urna efficitur. Dictum augue fermentum pharetra ac ut sem euismod. Curae natoque cubilia aptent ultrices volutpat lacinia molestie. Faucibus fermentum urna sem auctor elementum lacinia blandit? Etiam in aenean pretium quis blandit.
+
+Dis adipiscing donec dictumst etiam interdum nisl tempor. Class rhoncus sem dui sed nisi aliquet egestas. Vulputate potenti eros commodo habitasse luctus. Fringilla convallis at massa molestie nascetur morbi tristique imperdiet egestas. Dignissim cras penatibus mus eu lectus lectus potenti quam. Nulla est quam aliquam blandit penatibus netus.
+
+Nisi vestibulum egestas aliquet ridiculus dolor tortor magnis. Massa eros habitant elementum lectus faucibus quam. Mi eros facilisis magna faucibus interdum. Cubilia ac fusce tincidunt maximus fames consectetur eget. Praesent habitant donec torquent curabitur egestas condimentum platea elit. Porttitor mauris sagittis nullam sagittis nulla malesuada montes. Purus potenti etiam vulputate lacus id id aptent. Torquent conubia per auctor cursus vivamus; non rhoncus dictum.
+
+Facilisis scelerisque torquent conubia tortor sem aliquam tellus. Eleifend per condimentum mi aliquet nisi pharetra turpis fringilla pellentesque. Erat morbi cursus mattis lacinia facilisis curabitur eget. Ridiculus mi arcu mauris quam; tempor pharetra donec ipsum hac. Porttitor feugiat nostra rhoncus facilisis dictumst. Suscipit semper fermentum nascetur turpis; felis tortor potenti blandit? Fringilla et tincidunt vel nisl lacus ac convallis consequat. Massa a maximus litora pulvinar class viverra montes. Pretium euismod habitant felis ex ex consequat pellentesque penatibus. Sodales ante mauris at montes torquent justo.
+
+Nunc vestibulum mi, ornare velit odio fringilla quisque metus. Pulvinar posuere placerat sodales nec primis velit a. Sociosqu malesuada nostra lacinia commodo; primis tempus ultrices sagittis. Diam quisque ligula elit nascetur sollicitudin accumsan aliquet eros. Adipiscing urna aliquet fames inceptos fringilla nunc interdum fringilla. Odio mollis habitasse auctor leo iaculis iaculis urna integer proin. Tempor fringilla imperdiet orci tempus condimentum. Suspendisse tellus curae sociosqu etiam etiam. Morbi habitasse eleifend dapibus magnis eu scelerisque.
+
+Natoque ut netus in est quam. Sit amet molestie tempus habitant lobortis nullam eu neque. Ornare cubilia facilisi varius metus ullamcorper eget dictum. Commodo dolor dis fames vestibulum varius aenean ad dignissim. Aliquet laoreet aptent montes mauris pretium congue tristique sed. Ipsum egestas vivamus lobortis fames vehicula, nunc nec imperdiet. Mollis ultricies interdum vestibulum natoque nascetur semper gravida dapibus. Bibendum aptent aptent placerat morbi magnis sollicitudin? Placerat taciti accumsan egestas tincidunt mauris ligula ipsum.
+
+Natoque sed parturient ac, laoreet phasellus odio. Risus odio sapien elementum faucibus lacinia taciti pellentesque etiam. Egestas volutpat metus metus proin, neque morbi nulla. Quam adipiscing nisi dapibus ornare gravida sed. Massa laoreet adipiscing massa faucibus duis porttitor primis erat. Porta metus cursus felis sodales nullam ligula. Tristique praesent laoreet ac, velit risus integer. Efficitur tempor nibh curae amet augue vel convallis. Himenaeos magna adipiscing; sapien odio nisl viverra sapien. Massa cras maximus montes eu leo maecenas placerat.
+                
+            </pre>
+            <button class="copy-btn" id="copyBtn">
+                <i class="fas fa-copy"></i> Copiar
+            </button>
+        </div>
+
+        <div class="success-message" id="successMessage">
+            Copiado com sucesso!
+        </div>
+
+        <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Pharetra dictum ante pellentesque ut felis sociosqu mi egestas. Imperdiet sed semper ullamcorper phasellus mauris consequat volutpat fusce. Aliquet erat convallis ultrices sociosqu donec eros nisi. Suspendisse phasellus leo porttitor et egestas semper lorem sem curabitur. Enim nisl semper maecenas per pellentesque mattis. Elementum eu conubia sapien non; curabitur dignissim.
+
+Tristique penatibus hendrerit pretium lacus, pulvinar donec consequat. Proin semper habitant tempor sociosqu vehicula placerat accumsan! Adipiscing neque ante elementum dignissim eleifend quam. Scelerisque malesuada ipsum nunc urna in placerat laoreet. Suscipit donec nisl leo dolor scelerisque, ut interdum quisque. Lobortis maximus diam elementum dapibus scelerisque etiam eleifend arcu lorem. Posuere nunc congue ac venenatis sagittis vulputate et quam amet. Tellus fusce nullam class aenean leo ultricies enim.
+
+Condimentum volutpat eros finibus adipiscing morbi nec. Fames dui malesuada aliquet at iaculis. Consequat molestie libero ad magnis fringilla at. Platea eleifend hendrerit pellentesque consectetur convallis turpis ultrices nam. Mauris ante est purus habitant ornare leo blandit phasellus nisl. Odio magnis per fringilla suscipit a massa per. Habitasse augue maecenas vehicula vitae hendrerit fames. Dictum quis posuere posuere dictum mauris dis rutrum senectus. Aliquam vehicula phasellus a dui lacus tellus accumsan nibh.
+
+Sem suscipit elit ridiculus congue, cubilia elit? Vulputate suscipit curabitur elementum aenean turpis ultrices finibus congue. Placerat enim eget vestibulum, suscipit eget vitae. Pretium montes lacus maecenas fusce integer libero urna efficitur. Dictum augue fermentum pharetra ac ut sem euismod. Curae natoque cubilia aptent ultrices volutpat lacinia molestie. Faucibus fermentum urna sem auctor elementum lacinia blandit? Etiam in aenean pretium quis blandit.
+
+Dis adipiscing donec dictumst etiam interdum nisl tempor. Class rhoncus sem dui sed nisi aliquet egestas. Vulputate potenti eros commodo habitasse luctus. Fringilla convallis at massa molestie nascetur morbi tristique imperdiet egestas. Dignissim cras penatibus mus eu lectus lectus potenti quam. Nulla est quam aliquam blandit penatibus netus.
+
+Nisi vestibulum egestas aliquet ridiculus dolor tortor magnis. Massa eros habitant elementum lectus faucibus quam. Mi eros facilisis magna faucibus interdum. Cubilia ac fusce tincidunt maximus fames consectetur eget. Praesent habitant donec torquent curabitur egestas condimentum platea elit. Porttitor mauris sagittis nullam sagittis nulla malesuada montes. Purus potenti etiam vulputate lacus id id aptent. Torquent conubia per auctor cursus vivamus; non rhoncus dictum.
+
+Facilisis scelerisque torquent conubia tortor sem aliquam tellus. Eleifend per condimentum mi aliquet nisi pharetra turpis fringilla pellentesque. Erat morbi cursus mattis lacinia facilisis curabitur eget. Ridiculus mi arcu mauris quam; tempor pharetra donec ipsum hac. Porttitor feugiat nostra rhoncus facilisis dictumst. Suscipit semper fermentum nascetur turpis; felis tortor potenti blandit? Fringilla et tincidunt vel nisl lacus ac convallis consequat. Massa a maximus litora pulvinar class viverra montes. Pretium euismod habitant felis ex ex consequat pellentesque penatibus. Sodales ante mauris at montes torquent justo.
+
+Nunc vestibulum mi, ornare velit odio fringilla quisque metus. Pulvinar posuere placerat sodales nec primis velit a. Sociosqu malesuada nostra lacinia commodo; primis tempus ultrices sagittis. Diam quisque ligula elit nascetur sollicitudin accumsan aliquet eros. Adipiscing urna aliquet fames inceptos fringilla nunc interdum fringilla. Odio mollis habitasse auctor leo iaculis iaculis urna integer proin. Tempor fringilla imperdiet orci tempus condimentum. Suspendisse tellus curae sociosqu etiam etiam. Morbi habitasse eleifend dapibus magnis eu scelerisque.
+
+Natoque ut netus in est quam. Sit amet molestie tempus habitant lobortis nullam eu neque. Ornare cubilia facilisi varius metus ullamcorper eget dictum. Commodo dolor dis fames vestibulum varius aenean ad dignissim. Aliquet laoreet aptent montes mauris pretium congue tristique sed. Ipsum egestas vivamus lobortis fames vehicula, nunc nec imperdiet. Mollis ultricies interdum vestibulum natoque nascetur semper gravida dapibus. Bibendum aptent aptent placerat morbi magnis sollicitudin? Placerat taciti accumsan egestas tincidunt mauris ligula ipsum.
+
+Natoque sed parturient ac, laoreet phasellus odio. Risus odio sapien elementum faucibus lacinia taciti pellentesque etiam. Egestas volutpat metus metus proin, neque morbi nulla. Quam adipiscing nisi dapibus ornare gravida sed. Massa laoreet adipiscing massa faucibus duis porttitor primis erat. Porta metus cursus felis sodales nullam ligula. Tristique praesent laoreet ac, velit risus integer. Efficitur tempor nibh curae amet augue vel convallis. Himenaeos magna adipiscing; sapien odio nisl viverra sapien. Massa cras maximus montes eu leo maecenas placerat.</p>
+    </div>
+
+    <script>
+        const copyBtn = document.getElementById('copyBtn');
+        const codeBlock = document.getElementById('codeBlock');
+        const codeContainer = document.getElementById('codeContainer');
+        const successMessage = document.getElementById('successMessage');
+
+        function copyCode() {
+            const code = codeBlock.textContent;
+            navigator.clipboard.writeText(code)
+                .then(() => {
+                    showSuccessMessage();
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar : ', err);
+                });
+        }
+
+        function showSuccessMessage() {
+            successMessage.style.display = 'block';
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 2000);
+        }
+
+        function updateCopyButtonPosition() {
+            const containerRect = codeContainer.getBoundingClientRect();
+            const btnRect = copyBtn.getBoundingClientRect();
+            const offsetRight = 10; // Distância da borda direita
+
+            if (containerRect.top < 0 && containerRect.bottom > 0) {
+                copyBtn.classList.add('fixed');
+                copyBtn.style.top = '10px'; // Manter o topo fixo
+                copyBtn.style.right = `${window.innerWidth - containerRect.right + offsetRight}px`; // Alinha à borda direita da janela
+            } else {
+                copyBtn.classList.remove('fixed');
+                copyBtn.style.top = '10px';
+                copyBtn.style.right = '10px';
+            }
+
+            if (containerRect.top < window.innerHeight && containerRect.bottom > 0) {
+                copyBtn.classList.add('show');
+            } else {
+                copyBtn.classList.remove('show');
+            }
+        }
+
+        window.addEventListener('scroll', updateCopyButtonPosition);
+        window.addEventListener('resize', updateCopyButtonPosition);
+        copyBtn.addEventListener('click', copyCode);
+
+        // Inicializa a posição do botão
+        updateCopyButtonPosition();
+    </script>
+</body>
+</html>
