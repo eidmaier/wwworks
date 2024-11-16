@@ -1,0 +1,61 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Responsivo</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   
+</head>
+<body class="light">
+    <nav class="nav-top">
+        <div class="theme-controls">
+            <button class="dropdown-trigger">
+                <i class="fa-solid fa-palette"></i>
+            </button>
+            <div class="theme-dropdown">
+                <button class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <div class="color-picker-wrapper">
+                    <input type="color" class="color-picker" value="#d0d0d0">
+                    <i class="fa-solid fa-brush"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <header>
+        <h1>Header</h1>
+    </header>
+
+    <div class="content">
+        <nav class="nav-left">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h2>Main Content</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </main>
+
+        <aside>
+            <h2>Aside</h2>
+        </aside>
+    </div>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+    <script src="script.js" ></script>
+</body>
+</html>

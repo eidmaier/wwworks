@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    font-family: Arial, sans-serif;
+}
+
+.nav-top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+    height: 50px;
+}
+
+.theme-controls {
+    position: relative;
+    display: inline-block;
+}
+
+.theme-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.theme-controls.active .theme-dropdown {
+    display: block;
+}
+
+.dropdown-trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.theme-toggle, .color-picker-wrapper {
+    display: block;
+    margin: 5px 0;
+    color: #000;
+}
+
+.theme-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-toggle,
+.color-picker-wrapper {
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    background: none;
+    font-size: 0.8em;
+}
+
+.color-picker {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
+.color-picker-icon {
+    font-size: 1.2em;
+    pointer-events: none;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    height: 100px;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+}
+
+.nav-left {
+    width: 200px;
+    padding: 20px;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+aside {
+    width: 200px;
+    padding: 20px;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    height: 100px;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .nav-left, aside {
+        width: 100%;
+    }
+}
+
+/* Tema claro (padrão) */
+body.light {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+body.light .nav-top {
+    background-color: #e0e0e0;
+}
+
+body.light header,
+body.light footer {
+    background-color: #d0d0d0;
+}
+
+body.light .nav-left,
+body.light aside {
+    background-color: #e8e8e8;
+}
+
+body.light main {
+    background-color: #f8f8f8;
+}
+
+/* Tema escuro */
+body.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark .nav-top {
+    background-color: #444;
+}
+
+body.dark header,
+body.dark footer {
+    background-color: #222;
+}
+
+body.dark .nav-left,
+body.dark aside {
+    background-color: #3a3a3a;
+}
+
+body.dark main {
+    background-color: #2a2a2a;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-left ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.nav-left ul li {
+    margin: 10px 0;
+}
